@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resume Builder</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            .navbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 20px;
+                background-color: #333;
+                color: white;
+            }
+            
+            .hamburger {
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .navbar-title {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            
+            .login {
+                font-size: 16px;
+                text-decoration: none;
+                color: white;
+                padding: 8px 16px;
+                border: 1px solid white;
+                border-radius: 4px;
+            }
+            
+            .login:hover {
+                background-color: white;
+                color: #333;
+            }
+            
+            @media (max-width: 768px) {
+                .navbar-title {
+                    font-size: 20px;
+                }
+                .login {
+                    padding: 6px 12px;
+                    font-size: 14px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="hamburger">&#9776;</div>
+            <div class="navbar-title">Resume Builder</div>
+            <a href="#" class="login">Login</a>
+        </div>
+        <h1>Personal Details</h1>
+        <form action="/preview" method="POST">
+            <label for="fname">FirstName</label>
+            <input type="text" id="fname" name="fname" required>
+            <label for="lname">LastName</label>
+            <input type="text" id="lname" name="lname" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <button type="submit">Preview Resume</button>
+        </form>
+    </body>
+</html>            
