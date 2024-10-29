@@ -43,6 +43,7 @@
                 color: #333;
             }
             
+            
             @media (max-width: 768px) {
                 .navbar-title {
                     font-size: 20px;
@@ -52,7 +53,67 @@
                     font-size: 14px;
                 }
             }
-        </style>
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                width: 100%;
+            }
+
+            /* Form Title */
+            form h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            /* Label Styles */
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #555;
+            }
+
+            /* Input Field Styles */
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 1rem;
+                color: #333;
+            }
+
+            /* Input Field Focus Style */
+            input[type="text"]:focus,
+            input[type="email"]:focus {
+                border-color: #6c63ff;
+                outline: none;
+                box-shadow: 0 0 5px rgba(108, 99, 255, 0.2);
+            }
+
+            /* Button Styles */
+            button {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 5px;
+                background-color: #6c63ff;
+                color: #fff;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #574bff;
+            }
+         </style>
     </head>
     <body>
         <div class="navbar">
@@ -61,7 +122,7 @@
             <a href="#" class="login">Login</a>
         </div>
         <h1>Personal Details</h1>
-        <form action="/preview" method="POST">
+        <form class="for" action="/preview" method="POST">
             <label for="fname">FirstName</label>
             <input type="text" id="fname" name="fname" required>
             <label for="lname">LastName</label>

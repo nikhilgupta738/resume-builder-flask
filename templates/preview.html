@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        .info {
+            margin: 5px 0;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <h2>{{ data.fname }}'s Resume</h2>
+
+        <div class="section">
+            <div class="section-title">Contact Information</div>
+            <p class="info">Email: {{ data.email }}</p>
+            <p class="info">Phone: {{ data.phone }}</p>
+            <p class="info">Address: {{ data.address }}</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Summary</div>
+            <p>{{ data.summary }}</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Skills</div>
+            <ul>
+                {% for skill in data.skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Experience</div>
+            <ul>
+                {% for experience in data.experience %}
+                    <li>
+                        <strong>{{ experience.role }} at {{ experience.company }}</strong><br>
+                        {{ experience.description }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <ul>
+                {% for education in data.education %}
+                    <li>
+                        <strong>{{ education.degree }} - {{ education.institution }}</strong><br>
+                        {{ education.year }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="{{ url_for('form') }}" class="back-button">Back</a>
+    </div>
+</body>
+</html>
