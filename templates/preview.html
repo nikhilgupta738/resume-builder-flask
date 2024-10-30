@@ -55,7 +55,18 @@
             <div class="section-title">Contact Information</div>
             <p class="info">Email: {{ data.email }}</p>
             <p class="info">Phone: {{ data.phone }}</p>
-            <p class="info">Address: {{ data.address }}</p>
+
+            {% if data.web %}
+                <p class="info">Website: <a href="{{ data.web }}" target="_blank">{{ data.web }}</a></p>
+            {% else %}
+                <p class="info">Website: Not Provided</p>
+            {% endif %}
+            
+            {% if data.linkedin %}
+                <p class="info">LinkedIn: <a href="{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a></p>
+            {% else %}
+                <p class="info">LinkedIn: Not Provided</p>
+            {% endif %}
         </div>
 
         <div class="section">

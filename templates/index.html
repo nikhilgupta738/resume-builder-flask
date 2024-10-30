@@ -3,117 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Resume Builder</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            
-            .navbar {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 10px 20px;
-                background-color: #333;
-                color: white;
-            }
-            
-            .hamburger {
-                font-size: 24px;
-                cursor: pointer;
-            }
-            
-            .navbar-title {
-                font-size: 24px;
-                font-weight: bold;
-            }
-            
-            .login {
-                font-size: 16px;
-                text-decoration: none;
-                color: white;
-                padding: 8px 16px;
-                border: 1px solid white;
-                border-radius: 4px;
-            }
-            
-            .login:hover {
-                background-color: white;
-                color: #333;
-            }
-            
-            
-            @media (max-width: 768px) {
-                .navbar-title {
-                    font-size: 20px;
-                }
-                .login {
-                    padding: 6px 12px;
-                    font-size: 14px;
-                }
-            }
-            form {
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                max-width: 400px;
-                width: 100%;
-            }
-
-            /* Form Title */
-            form h2 {
-                text-align: center;
-                margin-bottom: 20px;
-                color: #333;
-            }
-
-            /* Label Styles */
-            label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: bold;
-                color: #555;
-            }
-
-            /* Input Field Styles */
-            input[type="text"],
-            input[type="email"] {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 15px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                font-size: 1rem;
-                color: #333;
-            }
-
-            /* Input Field Focus Style */
-            input[type="text"]:focus,
-            input[type="email"]:focus {
-                border-color: #6c63ff;
-                outline: none;
-                box-shadow: 0 0 5px rgba(108, 99, 255, 0.2);
-            }
-
-            /* Button Styles */
-            button {
-                width: 100%;
-                padding: 12px;
-                border: none;
-                border-radius: 5px;
-                background-color: #6c63ff;
-                color: #fff;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-
-            button:hover {
-                background-color: #574bff;
-            }
-         </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
         <div class="navbar">
@@ -121,15 +11,29 @@
             <div class="navbar-title">Resume Builder</div>
             <a href="#" class="login">Login</a>
         </div>
-        <h1>Personal Details</h1>
-        <form class="for" action="/preview" method="POST">
-            <label for="fname">FirstName</label>
-            <input type="text" id="fname" name="fname" required>
-            <label for="lname">LastName</label>
-            <input type="text" id="lname" name="lname" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <button type="submit">Preview Resume</button>
-        </form>
+        <div class="boo">
+            <form class="for" action="/preview" method="POST">
+                <h2>Personal Details</h2>
+                <div>
+                    <input type="text" id="fname" name="fname" placeholder="First Name*" required>
+                </div>
+                <div>
+                    <input type="text" id="lname" name="lname" placeholder="lastname*" required>
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" placeholder="email*" required>
+                </div>
+                <div>
+                    <input type="text" id="phone" name="phone" inputmode="numeric" pattern="[0-9]*" placeholder="Phone number">
+                </div>
+                <div>
+                    <input type="text" id="web" name="web" placeholder="your website">
+                </div>
+                <div>
+                    <input type="text" id="linkedin" name="linkedin" placeholder="LinkedIn">
+                </div>
+                <button type="submit">Preview Resume</button>
+            </form>            
+        </div>
     </body>
 </html>            

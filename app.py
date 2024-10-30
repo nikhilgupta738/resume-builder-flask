@@ -12,7 +12,10 @@ def form():
         data = {
             'fname': request.form['fname'],
             'lname': request.form['lname'],
-            'email': request.form['email']
+            'email': request.form['email'],
+            'phone': request.form['phone'],
+            'website': request.form['web'],
+            'linkedin': request.form['linkedin']
         }
 
         return render_template('preview.html', data=data)
