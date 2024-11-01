@@ -45,6 +45,24 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .download-button{
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer; 
+        }
+        .bu{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .bu .download-button{
+            margin-left: 50px;
+        }
     </style>
 </head>
 <body>
@@ -107,7 +125,12 @@
             </ul>
         </div>
 
-        <a href="{{ url_for('form') }}" class="back-button">Back</a>
+        <div class="bu">
+            <a href="{{ url_for('form') }}" class="back-button">Back</a>
+            <form action="{{ url_for('download_pdf') }}" method="POST">
+                <button type="submit" class="download-button">Download PDF</button>
+            </form>    
+        </div>
     </div>
 </body>
 </html>

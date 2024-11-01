@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
+import pdfkit
 
 app = Flask(__name__)
 
@@ -25,6 +26,16 @@ def form():
 def preview():
     data = request.form
     return render_template('preview.html', data=data)
+    
+@app.route('/download', methods=['POST'])
+def download_pdf():
+    data = request.form
+    rendered = render_template('preview.html', data=data)
+    pdf = pdfkit.from_string(rendered, False)
+    response = make_response(pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=resume.pdf'
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)

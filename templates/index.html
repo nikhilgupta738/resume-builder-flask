@@ -32,8 +32,56 @@
                 <div>
                     <input type="text" id="linkedin" name="linkedin" placeholder="LinkedIn">
                 </div>
+                <div>
+                    <input type="text" name="summary" placeholder="summary" id="summary" required>
+                </div>
+                <div>
+                    <input type="text" name="skills" id="skills" placeholder="skills" required>
+                </div>
+                <div>
+                    <button type="button" onclick="openModal()">Add Experience</button>
+                </div>
                 <button type="submit">Preview Resume</button>
             </form>            
         </div>
+        <div class="modal-overlay" id="experienceModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h3>Add Experience</h3>
+                <form id="experienceForm">
+                    <div><input type="text" name="company" placeholder="Company" required></div>
+                    <div><input type="text" name="role" placeholder="Role" required></div>
+                    <div><input type="date" name="startDate" placeholder="Start Date" required></div>
+                    <div><input type="date" name="endDate" placeholder="End Date (Leave empty if ongoing)"></div>
+                    <div><textarea name="description" placeholder="Description" rows="3" required></textarea></div>
+                    <button type="button" onclick="saveExperience()">Save Experience</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Function to open modal
+            function openModal() {
+                document.getElementById('experienceModal').style.display = 'flex';
+            }
+        
+            // Function to close modal
+            function closeModal() {
+                document.getElementById('experienceModal').style.display = 'none';
+            }
+        
+            // Function to save experience (this is a placeholder for actual saving logic)
+            function saveExperience() {
+                const form = document.getElementById('experienceForm');
+                const experienceData = {
+                    company: form.company.value,
+                    role: form.role.value,
+                    startDate: form.startDate.value,
+                    endDate: form.endDate.value,
+                    description: form.description.value
+                };
+                console.log('Experience Saved:', experienceData); // Display data in console
+                closeModal();
+            }
+        </script>
     </body>
 </html>            
